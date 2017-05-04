@@ -1,0 +1,45 @@
+<div class="devise_top_margin"><p id="notice"><%= notice %></p></div>
+
+<%#  <p>  %>
+<%#    <strong>User:</strong>  %>
+       <%#= @profile.user_id %>
+<%# </p>  %>
+
+<p>
+  <strong>First name:</strong>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @profile.last_name %>
+</p>
+
+<p>
+  <strong>Profile type:</strong>
+  <%= @profile.profile_type %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @profile.address %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @profile.longitude %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @profile.latitude %>
+</p>
+
+<p>
+  <strong>Rating average:</strong>
+  <%= @profile.rating_average %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<a href="/">Back Category list</a>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_type: MyString
+  description: MyText
+  show_image: MyString
+  cost: 9.99
+  cost_durations: MyString
+  attainability: false
+  user: one
+  category: one
+
+two:
+  item_type: MyString
+  description: MyText
+  show_image: MyString
+  cost: 9.99
+  cost_durations: MyString
+  attainability: false
+  user: two
+  category: two

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item type:</strong>
+  <%= @item.item_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Show image:</strong>
+  <%= @item.show_image %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @item.cost %>
+</p>
+
+<p>
+  <strong>Cost durations:</strong>
+  <%= @item.cost_durations %>
+</p>
+
+<p>
+  <strong>Attainability:</strong>
+  <%= @item.attainability %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item.user %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @item.category %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

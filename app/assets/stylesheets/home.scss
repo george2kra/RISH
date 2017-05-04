@@ -1,0 +1,63 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+   //padding-top: 60px;
+   //padding-bottom: 40px;
+   font-size: 1.5em;
+   text-align: center;
+   color: #5F07B1;
+   margin: 0;
+   padding: 0;
+
+}
+
+.wrapper_top {
+  padding-top: 5px;
+  font-size: 3em;
+  margin-top: 60px;
+  line-height: 35px;
+  // width: 100%;
+  //margin: 0 auto;
+  // position: fixed;
+  background: ghostwhite;
+}
+.wrapper_bottom {
+  margin-bottom: 70px;
+  // width: 100%;
+  //margin: 0 auto;
+  // position: fixed;
+  background: ghostwhite;
+}
+
+p {
+  font-size: 1.5em;
+  // width: 92%;  // shifts text left
+}
+
+ul li {
+  font-size: 1.5em;
+  line-height: 35px;
+  list-style: square;
+  text-align: left;
+ }
+
+ .book_button {
+    background-color: #e2b0e2;
+    border: none;
+    color: #5F07B1;
+    padding: 30px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 4px 2px;
+    cursor: pointer;
+    &:visited {
+      color: blue;
+    }
+    &:hover {
+      color: #fff;
+      background-color: hotpink;
+    }
+}

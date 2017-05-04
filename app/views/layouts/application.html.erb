@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rish</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="fixed-header">
+        <div class="container">
+          <nav>
+            <%-# views/devise/menu/_login_items.html.erb -%>
+            <div class="logo">R.I.S.H</div>
+            <% if user_signed_in? %>
+              <a href="/">Home</a>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+              <%= link_to('Edit profile', edit_user_registration_path) %>
+            <% else %>
+              <%= link_to('Login', new_user_session_path)  %>
+              <%= link_to('Join', new_user_registration_path)  %>
+            <% end %>
+          </nav>
+        </div>
+    </div>
+    <div class="fixed-footer">
+        <div class="container">
+          <nav>
+            <a href="#">About</a>
+            <a href="#">Adverts</a>
+            <a href="#">Contact</a>
+          </nav>
+        </div>
+    </div>
+    <div class="devise_top_margin"><p class="notice"><%= notice %></p></div>
+    <div class="devise_top_margin"><p class="alert"><%= alert %></p></div>
+    <%= yield %>
+  </body>
+
+</html>
