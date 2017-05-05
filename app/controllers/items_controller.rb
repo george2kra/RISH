@@ -5,6 +5,13 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    if params["select_cat"]
+      @items=@items.where(category_id: params["select_cat"])
+    end
+    if params[:item_filter]
+      @items=@items.where(item_type: params[:item_filter])
+    end
+    @itemtypes = @items.map(&:item_type).uniq
   end
 
   # GET /items/1

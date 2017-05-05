@@ -23,8 +23,9 @@ body{
 }
 h1 {
   color: blue;
-  font-size: 4em;
+  font-size: 2em;
   text-align: center;
+  line-height: normal; 
 
 }
 .fixed-header, .fixed-footer{
