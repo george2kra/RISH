@@ -14,12 +14,13 @@
         <div class="container">
           <nav>
             <%-# views/devise/menu/_login_items.html.erb -%>
-            <div class="logo">R.I.S.H</div>
             <% if user_signed_in? %>
+              <div class="logo">Hello <%= current_user.profile.first_name %> <%= current_user.id %></div>
               <a href="/">Home</a>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
               <%= link_to('Edit profile', edit_user_registration_path) %>
             <% else %>
+              <div class="logo">R.I.S.H</div>
               <%= link_to('Login', new_user_session_path)  %>
               <%= link_to('Join', new_user_registration_path)  %>
             <% end %>

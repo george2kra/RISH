@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookings
   resources :items
   resources :categories
   resources :profiles

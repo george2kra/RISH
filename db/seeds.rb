@@ -5,39 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# category_list = [
-#  ["category", "Gardening"],
-#  ["category", "Outdoor"],
-#  ["category", "Party"],
-#  ["category", "Power tools"],
-#
-#  ["category", "Garage parking"],
-#  ["category", "Trailer"],
-#  ["category", "Boat"],
-#  ["category", "Caravan"],
-#
-#  ["category", "storage space"],
-#
-#  ["category", "Camping"],
-#  ["category", "Kitchen"],
-#  ["category", "Console games"],
-#
-#  ["category", "PC/Desktop"],
-#  ["category", "Miscellaneous"],
-#  ["services", "Garden helper"],
-#  ["services", "House helper"],
-#  ["services", "Cooked meals"],
-#  ["services", "Mail Pickup"]
-# ]
-#
-# category_list.each do |type, name|
-#   Category.create!(category_type: type, category_name: name )
-# end
+category_list = [
+ ["items", "Gardening"],
+ ["items", "Outdoor"],
+ ["items", "Party"],
+ ["items", "Power tools"],
+ ["items", "Garage parking"],
+ ["items", "Trailer"],
+ ["items", "Boat"],
+ ["items", "Caravan"],
+ ["items", "storage space"],
+ ["items", "Camping"],
+ ["items", "Kitchen"],
+ ["items", "Console games"],
+ ["items", "PC/Desktop"],
+ ["items", "Miscellaneous"],
+ ["services", "Garden helper"],
+ ["services", "House helper"],
+ ["services", "Cooked meals"],
+ ["services", "Mail Pickup"]
+]
+
+category_list.each do |type, name|
+  Category.create!(category_type: type, category_name: name )
+end
 #
 # seed to insert into the Item table for category and services
-10.times do |x|
-  Item.create({user_id: 1, category_id: 1, item_type: "Category item #{x}", description: "Item #{x} is fantastic", cost: 10, cost_durations: "per_day", attainability: true} )
-end
-10.times do |x|
-  Item.create({user_id: 1, category_id: 2, item_type: "services Garden helper #{x}", description: "Item #{x} is fantastic", cost: 17, cost_durations: "per_hour", attainability: true} )
-end
+
+Item.create({user_id: 1, category_id: 1, item_type: "Lawn mower", description: "Has a v8 engine", cost: 10, cost_durations: "per_day", attainability: true} )
+Item.create({user_id: 1, category_id: 17, item_type: "Home chef", description: "I cook home meals", cost: 5, cost_durations: "per_person", attainability: true} )
+Item.create({user_id: 2, category_id: 1, item_type: "Chainsaw", description: "petrol 250 teeth", cost: 11, cost_durations: "per_day", attainability: true} )
+Item.create({user_id: 2, category_id: 16, item_type: "House keeper", description: "I can baby sit house while you are away", cost: 20, cost_durations: "per_day", attainability: true} )

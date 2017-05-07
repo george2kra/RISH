@@ -2,40 +2,48 @@
 
 <h1>Items</h1>
 <%= form_tag items_path, method: "get" do %>
-  <select name = "item_filter" >
-    <% @itemtypes.each do |type| %>
-      <option value="<%= type %>" >
-        <%= type %>
-      </option>
-    <% end %>
-  </select>
-  <input type="Submit" value="Filter" />
+      <select name = "item_filter" >
+        <% @itemtypes.each do |type| %>
+          <option value="<%= type %>" >
+            <%= type %>
+          </option>
+        <% end %>
+      </select>
+      <input type="Submit" value="Filter" />
 <% end %>
-<table>
-  <thead>
-    <tr>
-      <th>Short list</th>
-      <th>Item type</th>
-      <th>Description</th>
-      <th>Show image</th>
-      <th>Cost</th>
-      <th>Cost durations</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td> <input type="checkbox" name="select_cat[]" value="<%= item.id %>" /> </td>
-        <td><%= item.item_type %></td>
-        <td><%= item.description %></td>
-        <td><%= item.show_image %></td>
-        <td><%= item.cost %></td>
-        <td><%= item.cost_durations %></td>
-        <td><%= item.attainability %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= form_tag bookings_path, method: "get" do %>
+
+  <fieldset>
+    <legend>Check short list before hitting submit <button type="submit">Submit</button></legend>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Short list</th>
+          <th>Item type</th>
+          <th>Description</th>
+          <th>Show image</th>
+          <th>Cost</th>
+          <th>Cost durations</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td> <input type="checkbox" name="select_shortlist[]" value="<%= item.id %>" /> </td>
+            <td><%= item.item_type %></td>
+            <td><%= item.description %></td>
+            <td><%= item.show_image %></td>
+            <td><%= item.cost %></td>
+            <td><%= item.cost_durations %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </fieldset>
+
+<% end %>
 
 <br>

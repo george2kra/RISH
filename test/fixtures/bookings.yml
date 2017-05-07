@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_date: 2017-05-05
+  to_date: 2017-05-05
+  owner_rating: 1
+  owner_comments: MyText
+  rentor_rating: 1
+  rentor_comments: MyText
+  rent_status: false
+  user: one
+  item: one
+
+two:
+  from_date: 2017-05-05
+  to_date: 2017-05-05
+  owner_rating: 1
+  owner_comments: MyText
+  rentor_rating: 1
+  rentor_comments: MyText
+  rent_status: false
+  user: two
+  item: two
