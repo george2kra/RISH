@@ -1,4 +1,4 @@
-<div class='wrapper_top'>Welcme to R.I.S.H.</div>
+<div class='wrapper_top'>Welcome to R.I.S.H.</div>
 <ul>
   <li>Rental of Items for Services within your Household </li>
   <li>Save money by renting</li>
@@ -16,10 +16,13 @@
     <button type = "submit" name = "manage_items" value ="<%current_user.id%>">Manage Your Items</button>
   <% end %>
 <% end %>
+<% if (user_signed_in? && !Item.exists?(user_id: current_user.id) )%>
+  <a href="/items/new" class="book_button">Add your own items for renting</a>
+<% end %>
 
 <br>
 
-<% if (user_signed_in? && Booking.exists?(user_id: current_user.id) )%>
+<% if (user_signed_in? && Booking.exists?(user_id: current_user.id, rent_status: true) )%>
   <%= form_tag bookings_path, method: "get" do %>
     <button type = "submit" name = "rented_items" value ="<%current_user.id%>">Items You are Renting</button>
   <% end %>

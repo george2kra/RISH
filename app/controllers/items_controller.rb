@@ -15,8 +15,8 @@ class ItemsController < ApplicationController
 
 
     if params["manage_items"]
-      @count=@items.where(user: current_user).count
-      @items=@items.where(user: current_user)
+
+      @items=Item.where(user: current_user)
       @itemowner = 'y'
     end
   end
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-
+    @item.user = current_user
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -83,6 +83,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:item_type, :description, :show_image, :cost, :cost_durations, :attainability, :user_id, :category_id)
+      params.require(:item).permit(:item_type, :description, :show_image, :cost, :cost_durations, :attainability, :category_id)
     end
 end

@@ -29,7 +29,7 @@
     <% end %>
 
     <% if @itemowner == 'y' %>
-      <p>Total Item count: <%= @count %> </p>
+      <p>Total Item count: <%= @items.count %> </p>
     <% end %>
     <table>
       <thead>
@@ -43,6 +43,7 @@
           <th>Cost</th>
           <th>Cost durations</th>
         <% if @itemowner == 'y'  %>
+          <th>Attainability</th>
           <th colspan="2"></th>
         <% end %>
         </tr>
@@ -61,6 +62,7 @@
             <td><%= item.cost %></td>
             <td><%= item.cost_durations %></td>
           <% if @itemowner == 'y'  %>
+            <td><%= item.attainability %></td>
             <td><%= link_to 'Edit', edit_item_path(item) %></td>
             <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Item Categories for renting</h1><hr>
-<h2> Before Submitting enter your From and To dates and Check the services you want </h2>
+<h1>What Category of item are you looking for?</h1><hr>
+<h2> Before Submitting enter your From and To dates and Check the Category </h2>
 <% @fromdate = Time.now %>
 <p>From Date:  <%= from_date = date_select("my_date", "my_date", :default => @fromdate) %>
 <% @todate = Time.now + 86400 %>
@@ -15,7 +15,6 @@ To Date: <%= to_date = date_select("my_date", "my_date", :default => @todate) %>
       <thead>
         <tr>
           <th>Check</th>
-          <th>Type</th>
           <th>Category</th>
         </tr>
       </thead>
@@ -24,7 +23,6 @@ To Date: <%= to_date = date_select("my_date", "my_date", :default => @todate) %>
         <% @categories.each do |category| %>
           <tr>
             <td> <input type="checkbox" name="select_cat[]" value="<%= category.id %>" /> </td>
-            <td><%= category.category_type %></td>
             <td><%= category.category_name %></td>
           </tr>
         <% end %>

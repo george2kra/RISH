@@ -45,8 +45,8 @@ class BookingsController < ApplicationController
 
     if params["checked_confirm"]
 
-      @items = Item.all
-      @itemids = @items.where(id: params["checked_confirm"])
+      #@items = Item.all
+      @itemids = Item.where(id: params["checked_confirm"])
       @itemids.each do |itemid|
         @booking = Booking.create(from_date: Date.today + 2, to_date: Date.today + 5, owner_rating: 5, owner_comments: 'No commenets posted', rentor_rating: 5, rentor_comments: 'No comments posted', rent_status: true, user_id: current_user.id, item_id: itemid.id )
       end
