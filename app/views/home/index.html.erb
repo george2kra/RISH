@@ -1,4 +1,4 @@
-<div class='wrapper_top'>Welcome to R.I.S.H.</div>
+<div class='wrapper_top'>Welcme to R.I.S.H.</div>
 <ul>
   <li>Rental of Items for Services within your Household </li>
   <li>Save money by renting</li>
@@ -10,3 +10,17 @@
 <div class='wrapper_bottom'>
   <a href="/categories" class="book_button">Look at what you can rent</a>
 </div>
+
+<% if (user_signed_in? && Item.exists?(user_id: current_user.id) )%>
+  <%= form_tag items_path, method: "get" do %>
+    <button type = "submit" name = "manage_items" value ="<%current_user.id%>">Manage Your Items</button>
+  <% end %>
+<% end %>
+
+<br>
+
+<% if (user_signed_in? && Booking.exists?(user_id: current_user.id) )%>
+  <%= form_tag showrented_bookings_path, method: "get" do %>
+    <button type = "submit" name = "rented_items" value ="<%current_user.id%>">Items You are Renting</button>
+  <% end %>
+<% end %>

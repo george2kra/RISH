@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :bookings
+  resources :bookings do
+    collection do
+      get 'shortlist'
+      get 'showrented'
+    end
+
+    member do
+      patch 'returned'
+    end
+  end
   resources :items
   resources :categories
   resources :profiles

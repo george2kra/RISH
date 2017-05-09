@@ -12,6 +12,13 @@ class ItemsController < ApplicationController
       @items=@items.where(item_type: params[:item_filter])
     end
     @itemtypes = @items.map(&:item_type).uniq
+
+
+    if params["manage_items"]
+      @count=@items.where(user: current_user).count
+      @items=@items.where(user: current_user)
+      @itemowner = 'y'
+    end
   end
 
   # GET /items/1

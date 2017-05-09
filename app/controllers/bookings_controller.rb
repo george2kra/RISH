@@ -1,14 +1,27 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :returned]
 
-  # GET /bookings
-  # GET /bookings.json
-  def index
+  def shortlist
+    # do something here
     @bookings = Booking.all
     @items = Item.all
     if params["select_shortlist"]
       @shortlist = @items.where(id: params["select_shortlist"])
     end
+  end
+
+  def showrented
+    @bookings = Booking.all
+    if params["rented_items"]
+      @unreturned_bookings = @bookings.where(user: current_user, rent_status: true)
+      @returned_bookings = @bookings.where(user: current_user, rent_status: false)
+    end
+  end
+
+  # GET /bookings
+  # GET /bookings.json
+  def index
+    @bookings = Booking.all
   end
 
   # GET /bookings/1
@@ -43,7 +56,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to bookings_path, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -53,9 +66,27 @@ class BookingsController < ApplicationController
 
   end
 
+  # item return PATCH
+  def returned
+    if @booking.user_id == current_user.id
+        @booking.rent_status = !@booking.rent_status
+
+      respond_to do |format|
+        if @booking.save
+          format.html { redirect_to showrented_bookings_path, notice: 'The rent_status was successfully updated.' }
+          format.json { render :show, status: :created, location: @booking }
+        else
+          format.html { render :new }
+          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
+
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
@@ -76,6 +107,8 @@ class BookingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

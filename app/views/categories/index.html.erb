@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Choose from Categories</h1>
+<h1>Item Categories for renting</h1><hr>
+<h2> Before Submitting enter your From and To dates and Check the services you want </h2>
+<% @fromdate = Time.now %>
+<p>From Date:  <%= from_date = date_select("my_date", "my_date", :default => @fromdate) %>
+<% @todate = Time.now + 86400 %>
+To Date: <%= to_date = date_select("my_date", "my_date", :default => @todate) %> </p><br><hr>
+
 <%= form_tag(items_path, method: "get") do %>
   <fieldset>
-    <legend>Choose your category and then hit submit <button type="submit">Search</button></legend>
+    <legend>Check the categories before hitting Submit => <button type="submit">Submit</button></legend>
 
     <table>
       <thead>

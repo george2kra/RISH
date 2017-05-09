@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  attr_accessor :address, :latitiude, :longitude
+
 
   # GET /profiles
   # GET /profiles.json
@@ -28,7 +30,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }

@@ -1,6 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
+
+  def shortlist
+    # do something here
+  end
+
   # GET /categories
   # GET /categories.json
   def index

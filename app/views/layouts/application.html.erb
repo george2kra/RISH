@@ -14,8 +14,8 @@
         <div class="container">
           <nav>
             <%-# views/devise/menu/_login_items.html.erb -%>
-            <% if user_signed_in? %>
-              <div class="logo">Hello <%= current_user.profile.first_name %> <%= current_user.id %></div>
+            <% if user_signed_in? && current_user.profile.present? %>
+              <div class="logo">Hello <%= current_user.profile.first_name %> </div>
               <a href="/">Home</a>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
               <%= link_to('Edit profile', edit_user_registration_path) %>
