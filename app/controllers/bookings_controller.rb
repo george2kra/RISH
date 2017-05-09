@@ -11,17 +11,18 @@ class BookingsController < ApplicationController
   end
 
   def showrented
-    @bookings = Booking.all
     if params["rented_items"]
-      @unreturned_bookings = @bookings.where(user: current_user, rent_status: true)
-      @returned_bookings = @bookings.where(user: current_user, rent_status: false)
+      @unreturned_bookings = Booking.where(user: current_user, rent_status: true)
+      @returned_bookings = Booking.where(user: current_user, rent_status: false)
     end
   end
 
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    #@bookings = Booking.all
+    @bookings = Booking.where(user: current_user, rent_status: true)
+    @returned_bookings = Booking.where(user: current_user, rent_status: false)
   end
 
   # GET /bookings/1

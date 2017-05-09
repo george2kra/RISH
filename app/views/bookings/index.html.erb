@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Confirmed Bookings</h1>
-
+<h1>Current rented Items </h1>
+<fieldset>
+  <p>Total Item count: <%= @bookings.count %> </p>
 <table>
   <thead>
     <tr>
@@ -10,8 +11,8 @@
       <th>Item</th>
       <th>From date</th>
       <th>To date</th>
+      <th>Confirm Date</th>
       <th>Rent status</th>
-      <th>created_ts</th>
     </tr>
   </thead>
 
@@ -23,13 +24,54 @@
         <td><%= booking.item.item_type %></td>
         <td><%= booking.from_date %></td>
         <td><%= booking.to_date %></td>
-        <td><%= booking.rent_status %></td>
         <td><%= booking.created_at %></td>
+        <td>  <%= form_for booking do |f| %>
+              <%= f.hidden_field :rent_status, value: 0 %>
+              <%= f.submit 'Return'  %>
+              <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</fieldset>
 
-<br>
+<br><hr><br>
+
+<h1>Past Rented items</h1>
+<fieldset>
+<p>Total Item count: <%= @returned_bookings.count %> </p>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Item</th>
+      <th>From date</th>
+      <th>To date</th>
+      <th>Rent status</th>
+      <th>Record updated</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @returned_bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user.profile.last_name %></td>
+        <td><%= booking.user.profile.first_name %></td>
+        <td><%= booking.item.item_type %></td>
+        <td><%= booking.from_date %></td>
+        <td><%= booking.to_date %></td>
+        <td><%= form_for booking do |f| %>
+              <%= f.hidden_field :rent_status, value: 1 %>
+              <%= f.submit 'NotReturned'  %>
+              <% end %>
+          <%#= booking.rent_status %></td>
+        <td><%= booking.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</fieldset>
 
 <%#= link_to 'New Booking', new_booking_path %>

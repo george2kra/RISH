@@ -62,7 +62,11 @@
         <td><%= booking.item.item_type %></td>
         <td><%= booking.from_date %></td>
         <td><%= booking.to_date %></td>
-        <td><%= booking.rent_status %></td>
+        <td><%= form_for booking do |f| %>
+              <%= f.hidden_field :rent_status, value: 1 %>
+              <%= f.submit 'NotReturned'  %>
+              <% end %>
+          <%#= booking.rent_status %></td>
         <td><%= booking.updated_at %></td>
       </tr>
     <% end %>

@@ -20,7 +20,7 @@
 <br>
 
 <% if (user_signed_in? && Booking.exists?(user_id: current_user.id) )%>
-  <%= form_tag showrented_bookings_path, method: "get" do %>
+  <%= form_tag bookings_path, method: "get" do %>
     <button type = "submit" name = "rented_items" value ="<%current_user.id%>">Items You are Renting</button>
   <% end %>
 <% end %>
