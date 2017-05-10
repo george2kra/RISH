@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>What Category of item are you looking for?</h1><hr>
-<h2> Before Submitting enter your From and To dates and Check the Category </h2>
-<% @fromdate = Time.now.to_date %>
-<p>From Date:  <%= from_dates = date_select("my_date", "my_date", :default => @fromdate) %>
-<% @todate = Time.now.to_date + 7 %>
-To Date: <%= to_dates = date_select("my_date", "my_date", :default => @todate) %> </p><br><hr>
+<h1>Select at least one Category from list Below</h1><hr>
 
 <%= form_tag(items_path, method: "get") do %>
   <fieldset>
-    <legend>Check the categories before hitting Submit => <button type="submit">Submit</button></legend>
-<p> items that are available between <%=from_dates %> and <%= @todate %>  </p>
+    <legend><h2>Before Submitting Enter From and To dates </h2></legend>
+    <% @fromdates = Time.now.to_date %>
+    <% @todates = Time.now.to_date + 7 %>
+    <p>Rental From Date:  <%= date_select "from_dates", @fromdates, :default => @fromdates %>
+       To Date: <%= date_select :to_dates, @todates, :default => @todates  %> </p>
+    <button type="submit">Submit</button>
+    <br>
     <table>
       <thead>
         <tr>

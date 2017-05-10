@@ -26,12 +26,13 @@
     <fieldset>
     <% if @itemowner != 'y' %>
       <legend>Check <strong>'Short list'</strong> before hitting submit <button type="submit">Submit</button></legend>
+      <p>The following Items are available between <%= @fromdates %> and <%= @todates %> (<%= (@todates - @fromdates).to_i %> days) </p>
     <% end %>
 
     <% if @itemowner == 'y' %>
       <p>Total Item count: <%= @items.count %> </p>
     <% end %>
-    
+
     <table>
       <thead>
         <tr>

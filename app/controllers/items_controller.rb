@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
     @items = Item.where(attainability: true)
     if params["select_cat"]
       @items=@items.where(category_id: params["select_cat"])
+      @fromdates = Date.new(*params["from_dates"].values.map(&:to_i))
+      @todates = Date.new(*params["to_dates"].values.map(&:to_i))
+      #@items=@items.where()
     end
     if params[:item_filter]
       @items=@items.where(item_type: params[:item_filter])
