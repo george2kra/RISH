@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
+<h1>Items
+  <% if @itemowner != 'y' %>
+    Renting service
+    <% @itemowner = 'n' %>
+  <% else %>
+    Owner services
+  <% end %>
+</h1>
+
  <% if @itemowner != 'y' %>
     <%= form_tag items_path, method: "get" do %>
           <select name = "item_filter" >
@@ -14,23 +22,16 @@
     <% end %>
   <% end %>
 
-<% if @itemowner != 'y' %>
-  <p> Renting services</p>
-  <% @itemowner = 'n' %>
-<% else %>
-   <p> Owner services</p>
-<% end %>
-
-
   <%= form_tag shortlist_bookings_path, method: "get" do %>
     <fieldset>
     <% if @itemowner != 'y' %>
-      <legend>Check short list before hitting submit <button type="submit">Submit</button></legend>
+      <legend>Check <strong>'Short list'</strong> before hitting submit <button type="submit">Submit</button></legend>
     <% end %>
 
     <% if @itemowner == 'y' %>
       <p>Total Item count: <%= @items.count %> </p>
     <% end %>
+    
     <table>
       <thead>
         <tr>

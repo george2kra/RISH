@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.where(attainability: true)
     if params["select_cat"]
       @items=@items.where(category_id: params["select_cat"])
     end
