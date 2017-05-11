@@ -13,6 +13,7 @@
 <p>
   <strong>Show image:</strong>
   <%= @item.show_image %>
+  <%= image_tag(@item.show_image_url, width: 600) if @item.show_image.present? %>
 </p>
 
 <p>

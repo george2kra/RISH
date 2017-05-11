@@ -25,9 +25,10 @@ h1 {
   color: blue;
   font-size: 2em;
   text-align: center;
-  line-height: normal; 
+  line-height: normal;
 
 }
+
 .fixed-header, .fixed-footer{
    width: 100%;
    position: fixed;

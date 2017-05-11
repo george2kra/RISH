@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       patch 'returned'
     end
   end
+
+  Rails.application.routes.draw do
+    get "/pages/:page" => "pages#show"
+  end
+
   resources :items
   resources :categories
   resources :profiles

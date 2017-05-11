@@ -21,6 +21,7 @@
               <%= link_to('Edit profile', edit_user_registration_path) %>
             <% else %>
               <div class="logo">R.I.S.H</div>
+              <a href="/">Home</a>
               <%= link_to('Login', new_user_session_path)  %>
               <%= link_to('Join', new_user_registration_path)  %>
             <% end %>
@@ -30,7 +31,7 @@
     <div class="fixed-footer">
         <div class="container">
           <nav>
-            <a href="#">About</a>
+            <a href="/pages/about">About</a>
             <a href="#">Adverts</a>
             <a href="#">Contact</a>
           </nav>

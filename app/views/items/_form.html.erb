@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+    <div class="field">
+      <%= f.label :category_id %>
+      <%#= f.text_field :category_id %>
+      <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: true %>
+    </div>
+
   <div class="field">
     <%= f.label :item_type %>
     <%= f.text_field :item_type %>
@@ -23,7 +29,7 @@
 
   <div class="field">
     <%= f.label :show_image %>
-    <%= f.text_field :show_image %>
+    <%= f.file_field :show_image %>
   </div>
 
   <div class="field">
@@ -39,12 +45,6 @@
   <div class="field">
     <%= f.label :attainability %>
     <%= f.check_box :attainability, {checked: true} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category_id %>
-    <%#= f.text_field :category_id %>
-    <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: true %>
   </div>
 
   <div class="actions">

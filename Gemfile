@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+# carrierwave for image processing
+gem 'carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # devise signin profile management

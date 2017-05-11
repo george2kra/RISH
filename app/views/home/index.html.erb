@@ -8,12 +8,14 @@
 </ul>
 
 <div class='wrapper_bottom'>
-  <a href="/categories" class="book_button">Look at what you can rent</a>
+  <a href="/categories" class="book_button">Look at what you can rent</a><br><br>
 </div>
 
 <% if (user_signed_in? && Item.exists?(user_id: current_user.id) )%>
   <%= form_tag items_path, method: "get" do %>
-    <button type = "submit" name = "manage_items" value ="<%current_user.id%>">Manage Your Items</button>
+    <a href="/items/new" class="book_button">Add your own items for renting</a><br><br>
+    <button type = "submit" name = "manage_items" value ="<%current_user.id%>">Manage Your Items</button><br>
+
   <% end %>
 <% end %>
 <% if (user_signed_in? && !Item.exists?(user_id: current_user.id) )%>

@@ -4,6 +4,8 @@
   <% if @itemowner != 'y' %>
     Renting service
     <% @itemowner = 'n' %>
+    <% @fromdates = Time.now.to_date %>
+    <% @todates = Time.now.to_date %>
   <% else %>
     Owner services
   <% end %>
@@ -60,7 +62,7 @@
 
             <td><%= item.item_type %></td>
             <td><%= item.description %></td>
-            <td><%= item.show_image %></td>
+            <td><%= image_tag(item.show_image_url, width: 150) if item.show_image.present? %></td>
             <td><%= item.cost %></td>
             <td><%= item.cost_durations %></td>
           <% if @itemowner == 'y'  %>
