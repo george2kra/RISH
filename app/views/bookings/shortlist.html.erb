@@ -11,7 +11,7 @@
     <legend>Either Confirm or unconfirm items before hitting submit </legend>
     <button type="submit">Submit</button>
   <% end %>
-  <% tally = 0 %>
+  <% @tally = 0 %>
   <table>
     <thead>
       <tr>
@@ -32,11 +32,11 @@
             <td><%= item.cost %> </td>
             <td><%= item.user.profile.first_name %>  </td>
             <td><%= item.user.profile.last_name %>  </td>
-            <% tally = tally + item.cost %>
+            <% @tally = @tally + item.cost %>
           </tr>
         <% end %>
       </tbody>
   </table>
-  <p> Item Rental: $<%= tally %> </p>
+  <p> Item Rental: $<%= @tally * 100 %> cents </p>
 </fieldset>
 <% end %>

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+resources :charges
+
+  get 'contact', to:"contact#index"
+  post 'contact', to:"contact#mail"
+
+#  get 'contact/index'
+#  get 'contact/mail'
+
   resources :bookings do
     collection do
       get 'shortlist'
@@ -11,6 +20,10 @@ Rails.application.routes.draw do
   end
 
   Rails.application.routes.draw do
+  get 'contact/index'
+
+  get 'contact/mail'
+
     get "/pages/:page" => "pages#show"
   end
 

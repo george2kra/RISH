@@ -29,6 +29,17 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.default_url_options = { host:'localhost', port:3000 }
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+     address: "smtp.mailgun.org",
+     port: 25,    #port: 587,
+     domain:ENV["MAILGUN_DOMAIN_URL"],
+     user_name:ENV["MAILGUN_DEFAULT_SMTP"],
+     password: ENV["MAILGUN_PASSWORD"],
+     authentication: 'plain' }
+
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
