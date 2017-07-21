@@ -61,6 +61,8 @@ https://trello.com/b/5d7epfLC/rish-rental-item-services-household
 ## Figma - Wireframing and prototyping the look and feel of the product.
 https://www.figma.com/file/VE0Nm2QPHVC16Jwv2syQZ4rO/RISH
 
+![rish_figma](https://user-images.githubusercontent.com/25757504/28450087-5a91bc28-6e28-11e7-81a7-9a906298042b.png)
+
 ## ATOM - Code editor.
 
 # To Do 🔥🔥🔥
