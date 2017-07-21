@@ -56,6 +56,8 @@ https://dbdesigner.net/designer/schema/86825
 ## Trello - For documenting process, sprints, models and user stories.
 https://trello.com/b/5d7epfLC/rish-rental-item-services-household
 
+![rish_trello](https://user-images.githubusercontent.com/25757504/28450012-d69b5d34-6e27-11e7-8790-d8674c0d2e6f.png)
+
 ## Figma - Wireframing and prototyping the look and feel of the product.
 https://www.figma.com/file/VE0Nm2QPHVC16Jwv2syQZ4rO/RISH
 
