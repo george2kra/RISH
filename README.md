@@ -51,6 +51,8 @@ Codename:	serena
 ## DBDesigner.net - For laying out, determining relationships and revising DB structure for project.
 https://dbdesigner.net/designer/schema/86825
 
+![rish_db_model](https://user-images.githubusercontent.com/25757504/28449909-351ab48c-6e27-11e7-8758-ddeea7d0daaf.jpg)
+
 ## Trello - For documenting process, sprints, models and user stories.
 https://trello.com/b/5d7epfLC/rish-rental-item-services-household
 
